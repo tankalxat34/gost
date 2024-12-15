@@ -1,0 +1,109 @@
+* {
+  /* margin: 0;
+  padding: 0; */
+  font-family: "Arial";
+}
+
+h1, h2, h3, h4 {
+  margin: 8px auto;
+}
+
+/* Основные стили для input */
+input[type='text'] {
+  width: 90vw;
+  padding: 10px 15px;
+  margin: 10px 0;
+  font-size: 16px;
+  color: #333;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+input:focus {
+  border-color: #0078d7;
+  box-shadow: 0 0 5px rgba(0, 120, 215, 0.5);
+}
+
+input[type='checkbox'], label {
+  user-select: none;
+}
+
+/* Основные стили для textarea */
+textarea {
+  width: 90vw;
+  padding: 10px 15px;
+  font-size: 16px;
+  color: #333;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  resize: vertical; /* Разрешить изменение только по вертикали */
+  max-height: 300px; /* Ограничить максимальную высоту */
+  transition: box-shadow 0.3s ease;
+}
+
+textarea:focus {
+  border-color: #0078d7;
+  box-shadow: 0 0 5px rgba(0, 120, 215, 0.5);
+}
+
+/* Добавление прокрутки для textarea после достижения высоты */
+textarea {
+  overflow-y: auto;
+  margin: 15px 0;
+}
+
+/* Основные стили для div */
+div.block {
+  padding: 20px;
+  margin: 15px 0;
+  background: linear-gradient(135deg, #e0eafc, #cfdef3);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+/* Основные стили для button */
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  /* font-weight: bold; */
+  color: #fff;
+  background-color: #0078d7;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #005bb5;
+  /* transform: scale(1.05); */
+}
+
+button:active {
+  background-color: #004494;
+  /* transform: scale(0.95); */
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+ol > li.gost-link {
+  font-family: 'Times New Roman';
+  font-size: 14px;
+}
+
+/* div:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+} */

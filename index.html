@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>ГОСТ Сокращатель ссылок</title>
+  </head>
+  <body>
+    <h1>Сокращатель библиографических ссылок</h1>
+    <p>
+      Данный сокращатель ссылок позволяет создать корректное библиографическое
+      описание для выпускной, курсовой или иной работы по стандарту ГОСТ РФ
+      7.0.100-2018 «Библиографическая запись. Библиографическое описание. Общие
+      требования и правила составления».
+    </p>
+
+    <div class="block">
+      <label for="lang-en"
+        ><input type="checkbox" name="lang-en" id="lang-en" /> Форматировать как
+        англоязычные источники
+      </label>
+    </div>
+
+    <div id="d0" class="block">
+      <h3>Создать один источник</h3>
+      <label>Превратить URL в формат ГОСТ:</label>
+      <input type="text" name="i-url" id="i-url" style="width: 700px" />
+      <button id="d0-action">Копировать</button>
+    </div>
+
+    <div id="d1" class="block">
+      <h3>Создать библиографический список</h3>
+      <label
+        >Вставьте в текстовое поле ниже ссылки, чтобы каждая ссылка
+        располагалась на отдельной строке. После этого нажмите кнопку
+        "Преобразовать". На выходе вы получите библиографический список,
+        отсортированный по алфавиту, как это требует ГОСТ.</label
+      >
+      <textarea name="t-input" id="t-input" rows="10"></textarea> <br />
+      <button id="d1-action">Преобразовать</button>
+      <button id="d1-action-clear">Очистить</button>
+
+      <div class="result">
+        <h4>Результат:</h4>
+        <ol id="t-output">
+          <!-- Здесь будет появляться список -->
+          <!-- <li class="gost-link">Ссылка 1</li> -->
+        </ol>
+      </div>
+    </div>
+  </body>
+
+  <script src="index.js"></script>
+</html>
