@@ -18,7 +18,7 @@ async function fetchPageTitle(url) {
     return title ? title.textContent : "Title not found";
   } catch (error) {
     console.error("Error fetching page title:", error);
-    return "ERROR FETCHING TITLE";
+    return "ERROR";
   }
 }
 
@@ -67,7 +67,7 @@ function getMask(parsedUrl) {
     selectedMask: document.querySelector("#lang-en").checked
       ? MASK.EN
       : MASK.RU,
-    url: parsedUrl.href,
+    url: decodeURI(parsedUrl.href),
     domain: parsedUrl.hostname,
     date: document.querySelector("#lang-en").checked
       ? formatDateEN()
@@ -100,8 +100,18 @@ async function makeGostLinkAsync(parsedUrl) {
 window.onload = function () {
   document.querySelector("button#d0-action").addEventListener("click", () => {
     let parsedUrl = new URL(document.querySelector("input#i-url").value.trim());
-    makeGostLink(parsedUrl, copyToClipboard);
+    makeGostLink(parsedUrl, (result) => {
+      document.querySelector("#d0-result").innerHTML = result;
+      copyToClipboard(result);
+    });
   });
+
+  document
+    .querySelector("button#d0-action-clear")
+    .addEventListener("click", () => {
+      document.querySelector("#i-url").value = "";
+      document.querySelector("#d0-result").innerHTML = "";
+    });
 
   document
     .querySelector("button#d1-action-clear")
@@ -115,19 +125,26 @@ window.onload = function () {
       .querySelector("textarea#t-input")
       .value.trim()
       .split("\n");
+
+    inputUrls = inputUrls.filter((value) => value && value.trim?.());
     // console.log(inputUrls);
 
     document.querySelector("ol#t-output").innerHTML = "";
 
-    var outputUrls = [];
-
-    inputUrls.forEach(async (plainUrl) => {
+    inputUrls.forEach((plainUrl, index) => {
       let parsedUrl = new URL(plainUrl.trim());
       console.log(parsedUrl);
       makeGostLink(parsedUrl, (result) => {
         document.querySelector(
           "ol#t-output"
         ).innerHTML += `<li class='gost-link'>${result}</li>`;
+
+        // сортировка по алфавиту после добавления последней ГОСТ-ссылки
+        if (index == inputUrls.length - 1) {
+          document.querySelector("ol#t-output").childNodes = [
+            ...document.querySelector("ol#t-output").childNodes,
+          ].sort();
+        }
       });
     });
   });

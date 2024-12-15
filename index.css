@@ -4,13 +4,16 @@
   font-family: "Arial";
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   margin: 8px auto;
 }
 
 /* Основные стили для input */
-input[type='text'] {
-  width: 90vw;
+input[type="text"] {
+  max-width: 90%;
   padding: 10px 15px;
   margin: 10px 0;
   font-size: 16px;
@@ -27,13 +30,14 @@ input:focus {
   box-shadow: 0 0 5px rgba(0, 120, 215, 0.5);
 }
 
-input[type='checkbox'], label {
+input[type="checkbox"],
+label {
   user-select: none;
 }
 
 /* Основные стили для textarea */
 textarea {
-  width: 90vw;
+  width: 90%;
   padding: 10px 15px;
   font-size: 16px;
   color: #333;
@@ -58,6 +62,11 @@ textarea {
 }
 
 /* Основные стили для div */
+div {
+  word-wrap: break-word; /* Перенос слов, чтобы они не выходили за границы */
+  overflow-wrap: break-word; /* Альтернативный перенос для длинных слов */
+}
+
 div.block {
   padding: 20px;
   margin: 15px 0;
@@ -75,32 +84,63 @@ button {
   padding: 10px 20px;
   font-size: 16px;
   /* font-weight: bold; */
-  color: #fff;
-  background-color: #0078d7;
+
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-button:hover {
+button.primary {
+  color: #fff;
+  background-color: #0078d7;
+}
+
+button.primary:hover {
   background-color: #005bb5;
   /* transform: scale(1.05); */
 }
 
-button:active {
+button.primary:active {
   background-color: #004494;
   /* transform: scale(0.95); */
 }
 
-button:disabled {
+button.primary:disabled {
   background-color: #ccc;
   cursor: not-allowed;
 }
 
+/* Основные стили для button.secondary */
+button.secondary {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button.secondary:hover {
+  background-color: #e0e0e0;
+}
+
+button.secondary:active {
+  background-color: #d0d0d0;
+  /* transform: scale(0.95); */
+}
+
+button.secondary:disabled {
+  background-color: #f9f9f9;
+  cursor: not-allowed;
+}
+
 ol > li.gost-link {
-  font-family: 'Times New Roman';
-  font-size: 14px;
+  font-family: "Times New Roman";
+  font-size: 14pt;
 }
 
 /* div:hover {

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" href="index.css" />
     <title>ГОСТ Сокращатель ссылок</title>
   </head>
@@ -24,9 +24,19 @@
 
     <div id="d0" class="block">
       <h3>Создать один источник</h3>
-      <label>Превратить URL в формат ГОСТ:</label>
+      <label
+        >Превратить URL в формат ГОСТ (на ПК копируется в буфер автоматически при
+        нажатии на кнопку):</label
+      >
       <input type="text" name="i-url" id="i-url" style="width: 700px" />
-      <button id="d0-action">Копировать</button>
+      <button class="primary" id="d0-action">Копировать</button>
+      <button class="secondary" id="d0-action-clear">Очистить</button>
+
+      <br />
+      <p
+        id="d0-result"
+        style="font-family: 'Times New Roman'; font-size: 14pt"
+      ></p>
     </div>
 
     <div id="d1" class="block">
@@ -34,12 +44,20 @@
       <label
         >Вставьте в текстовое поле ниже ссылки, чтобы каждая ссылка
         располагалась на отдельной строке. После этого нажмите кнопку
-        "Преобразовать". На выходе вы получите библиографический список,
-        отсортированный по алфавиту, как это требует ГОСТ.</label
-      >
+        "Преобразовать". На выходе вы получите библиографический список в
+        формате, как это требует ГОСТ. Конечные требования оформления списка
+        могут отличаться в зависимости от требований ВУЗа. Проверяйте
+        соответствие локальным требованиям ВУЗа самостоятельно.
+        <br />
+
+        Обратите внимание, что для некоторых сайтов не получается получить их
+        заголовок. Это происходит из-за CORS политики, действующей на этих
+        сайтах. При форматировании списка рекомендуется вручную прописать
+        названия страниц, для которых не получилось его получить автоматически.
+      </label>
       <textarea name="t-input" id="t-input" rows="10"></textarea> <br />
-      <button id="d1-action">Преобразовать</button>
-      <button id="d1-action-clear">Очистить</button>
+      <button class="primary" id="d1-action">Преобразовать</button>
+      <button class="secondary" id="d1-action-clear">Очистить</button>
 
       <div class="result">
         <h4>Результат:</h4>
