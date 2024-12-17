@@ -1,12 +1,13 @@
 import asyncio
 import tornado
 
-from handlers import MainHandler
+from server.handlers import *
 
 def make_app():
     return tornado.web.Application([
-        (r"/", MainHandler),
-    ])
+    (r"/api/v1/getTitle", getTitle),
+    (r"/api/v1/getGostLink", getGostLink),
+])
 
 async def main():
     app = make_app()
