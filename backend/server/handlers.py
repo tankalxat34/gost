@@ -57,6 +57,10 @@ class getTitle(tornado.web.RequestHandler):
 
 
 class getGostLink(tornado.web.RequestHandler):
+    def prepare(self):
+        self.set_header("Access-Control-Allow-Origin", "*")
+        return super().prepare()
+
     def get(self):
         arg_url = self.get_query_argument("url")
         arg_lang = self.get_query_argument("lang")
