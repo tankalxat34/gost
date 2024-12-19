@@ -72,4 +72,6 @@ class getGostLink(tornado.web.RequestHandler):
         for url in request_body:
             resp.append(create_gost(url, arg_lang))
 
+        resp = sorted(resp)
+
         self.write(response(resp))
