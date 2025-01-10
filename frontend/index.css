@@ -94,6 +94,8 @@ button {
 button.primary {
   color: #fff;
   background-color: #0078d7;
+  font-weight: bold;
+  border: 1px solid #004b96;
 }
 
 button.primary:hover {
@@ -141,9 +143,52 @@ button.secondary:disabled {
 ol > li.gost-link {
   font-family: "Times New Roman";
   font-size: 14pt;
+  text-align: justify;
+  color: black;
+  line-height: 1.5;
 }
 
 /* div:hover {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transform: translateY(-2px);
 } */
+
+/* Стили для alert */
+/* Стили для alert */
+#alert-field {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column-reverse; /* Новые уведомления сверху */
+  gap: 10px;
+  z-index: 1000; /* Поверх всего содержимого */
+}
+
+.alert {
+  padding: 15px 20px;
+  margin: 0; /* Убираем внешние отступы, так как используется gap */
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+
+  width: 50vw;
+  cursor: pointer;
+  user-select: none;
+}
+
+.alert.info {
+  background-color: #0078d7;
+}
+
+.alert.warning {
+  background-color: #ffcc00;
+  color: #333;
+}
+
+.alert.error {
+  background-color: #d9534f;
+}
