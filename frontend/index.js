@@ -70,11 +70,8 @@ window.onload = function () {
       .then((res) => res.json())
       .then((j) => {
         document.querySelector("#d0-result").innerHTML = j.data;
-        navigator.clipboard.writeText(
-          document.querySelector("#d0-result").innerHTML
-        );
       })
-      .catch((e) => alert(e));
+      .catch((e) => Alert.add(e, "error"));
   });
 
   document.querySelector("#alert-field").addEventListener("click", () => {
@@ -139,11 +136,6 @@ window.onload = function () {
             "ol#t-output"
           ).innerHTML += `<li class='gost-link'>${element}</li>`;
         });
-      })
-      .then(() => {
-        navigator.clipboard.writeText(
-          document.querySelector("ol#t-output").textContent
-        );
       })
       .catch((e) => {
         Alert.add(`${e}`, "error");
