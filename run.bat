@@ -1,2 +1,1 @@
-npx serve -p 90 ./frontend
-python ./backend/main.py
+python "D:\GitHub\gost\backend\main.py"
