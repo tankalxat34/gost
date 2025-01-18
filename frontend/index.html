@@ -34,19 +34,18 @@
     <div id="d0" class="block">
       <h3>Создать один источник</h3>
       <label
-        >Превратить URL в формат ГОСТ (на ПК копируется в буфер автоматически
-        при нажатии на кнопку):</label
+        >Превратить URL в формат ГОСТ:</label
       >
-      <br/>
+      <br />
       <input type="text" name="i-url" id="i-url" style="width: 700px" />
-      <br/>
+      <br />
       <button class="primary" id="d0-action">Преобразовать</button>
       <button class="secondary" id="d0-action-clear">Очистить</button>
 
       <br />
       <p
         id="d0-result"
-        style="font-family: 'Times New Roman'; font-size: 14pt"
+        style="font-family: 'Times New Roman'; font-size: 14pt; color: black"
       ></p>
     </div>
 
@@ -77,11 +76,14 @@
       <button class="secondary" id="d1-action-clear_list">
         Очистить список
       </button>
-      <button class="secondary" id="show-alert">
-        Показать уведомление
-      </button>
+      <button class="secondary" id="show-alert">Показать уведомление</button>
 
-      <textarea name="t-input" id="t-input" rows="10"></textarea> <br />
+      <textarea
+        name="t-input"
+        id="t-input"
+        style="height: 50vh; max-height: 200vh"
+      ></textarea>
+      <br />
 
       <button class="primary" id="d1-action">Преобразовать</button>
       <button class="secondary" id="d1-action-clear">Очистить поле</button>
@@ -95,8 +97,297 @@
       </div>
     </div>
 
+    <div class="block" id="helper-settings-show_rugost">
+      <style>
+        textarea.helper-rugost {
+          height: 150px;
+        }
+      </style>
+      <h3 class="helper-service_title">
+        Создать библиографическую ссылку на бумажный носитель
+      </h3>
+
+      <p>
+        Сервис генерирует библиографическое описание литературы согласно
+        национальному стандарту
+        <a href="https://www.ifap.ru/library/gost/7052008.pdf" target="_blank"
+          >РФ ГОСТ 7.0.5-2008 «Библиографическая ссылка. Общие требования и
+          правила составления»</a
+        >. При нажатии на поле с результатом ссылка скопируется автоматически.
+      </p>
+      <div style="display: flex">
+        <select
+          id="helper-rugost_selector"
+          class="form-select custom-select"
+          aria-label="Меню типов источников"
+        >
+          <option value="-1" selected>(Выберите источник...)</option>
+          <option value="0">Книга</option>
+          <option value="1">Статья из журнала</option>
+          <option value="2">Статья из сборника</option>
+          <!-- <option value="3">Диссертация или автореферат</option> -->
+          <option value="4">Интернет-ресурс</option>
+        </select>
+
+        <button
+          id="helper-rugost-btn_clear"
+          class="secondary"
+          style="margin-left: 7px"
+        >
+          Очистить
+        </button>
+      </div>
+
+      <div id="helper-rugost_s0" class="helper-rugost_raw" hidden>
+        <!-- <h6>Книга</h6> -->
+
+        <input
+          type="text"
+          id="helper-rugost-author-s0"
+          class="helper-rugost-author form-control"
+          style="margin: 7px"
+          placeholder="Фамилии и инициалы авторов (через запятую): Сидоров А.Н., Иванов В.И."
+        />
+
+        <input
+          type="text"
+          id="helper-rugost-title-s0"
+          class="helper-rugost-title form-control"
+          style="margin: 7px"
+          placeholder="Название книги"
+        />
+
+        <input
+          type="text"
+          id="helper-rugost-num_redaction-s0"
+          class="helper-rugost-num_redaction form-control"
+          style="margin: 7px"
+          placeholder="Номер издания"
+        />
+
+        <input
+          type="text"
+          id="helper-rugost-city-s0"
+          class="helper-rugost-city form-control"
+          style="margin: 7px"
+          placeholder="Город издания"
+        />
+
+        <input
+          type="text"
+          id="helper-rugost-publisher-s0"
+          class="helper-rugost-publisher form-control"
+          style="margin: 7px"
+          placeholder="Издательство"
+        />
+
+        <input
+          type="number"
+          id="helper-rugost-year-s0"
+          class="helper-rugost-year form-control"
+          style="margin: 7px"
+          placeholder="Год издания"
+        />
+
+        <input
+          type="number"
+          id="helper-rugost-pages_count-s0"
+          class="helper-rugost-pages_count form-control"
+          style="margin: 7px"
+          placeholder="Число страниц в книге"
+        />
+
+        <textarea
+          class="form-control helper-rugost"
+          placeholder="Результат появится здесь..."
+          id="helper-rugost-result-s0"
+          style="margin: 7px"
+          onclick="this.select(); navigator.clipboard.writeText(this.value);"
+        ></textarea>
+      </div>
+
+      <div id="helper-rugost_s1" class="helper-rugost_raw" hidden>
+        <!-- <h6>Статья из журнала</h6> -->
+
+        <input
+          type="text"
+          id="helper-rugost-author-s1"
+          class="helper-rugost-author form-control"
+          style="margin: 7px"
+          placeholder="Фамилии и инициалы авторов (через запятую): Сидоров А.Н., Иванов В.И."
+        />
+
+        <input
+          type="text"
+          id="helper-rugost-title-s1"
+          class="helper-rugost-title form-control"
+          style="margin: 7px"
+          placeholder="Заголовок статьи"
+        />
+
+        <input
+          type="text"
+          id="helper-rugost-magazine_title-s1"
+          class="helper-rugost-magazine_title form-control"
+          style="margin: 7px"
+          placeholder="Название журнала"
+        />
+
+        <input
+          type="number"
+          id="helper-rugost-magazine_number-s1"
+          class="helper-rugost-magazine_number form-control"
+          style="margin: 7px"
+          placeholder="Номер журнала"
+        />
+
+        <input
+          type="text"
+          id="helper-rugost-page-s1"
+          class="helper-rugost-page form-control"
+          style="margin: 7px"
+          placeholder="Страницы: 191-207"
+        />
+
+        <input
+          type="number"
+          id="helper-rugost-year-s1"
+          class="helper-rugost-year form-control"
+          style="margin: 7px"
+          placeholder="Год"
+        />
+
+        <textarea
+          class="form-control helper-rugost"
+          placeholder="Результат появится здесь..."
+          id="helper-rugost-result-s1"
+          style="margin: 7px"
+          onclick="this.select(); navigator.clipboard.writeText(this.value);"
+        ></textarea>
+      </div>
+
+      <div id="helper-rugost_s2" class="helper-rugost_raw" hidden>
+        <!-- <h6>Статья из сборника</h6> -->
+
+        <input
+          type="text"
+          id="helper-rugost-author-s2"
+          class="helper-rugost-author form-control"
+          style="margin: 7px"
+          placeholder="Фамилии и инициалы авторов (через запятую): Сидоров А.Н., Иванов В.И."
+        />
+
+        <input
+          type="text"
+          id="helper-rugost-title-s2"
+          class="helper-rugost-title form-control"
+          style="margin: 7px"
+          placeholder="Заголовок статьи из сборника"
+        />
+
+        <input
+          type="text"
+          id="helper-rugost-sbornik_title-s2"
+          class="helper-rugost-sbornik_title form-control"
+          style="margin: 7px"
+          placeholder="Название сборника"
+        />
+
+        <input
+          type="text"
+          id="helper-rugost-city-s2"
+          class="helper-rugost-city form-control"
+          style="margin: 7px"
+          placeholder="Город, в котором издан сборник"
+        />
+
+        <input
+          type="text"
+          id="helper-rugost-publisher-s2"
+          class="helper-rugost-publisher form-control"
+          style="margin: 7px"
+          placeholder="Издательство"
+        />
+
+        <input
+          type="number"
+          id="helper-rugost-year-s2"
+          class="helper-rugost-year form-control"
+          style="margin: 7px"
+          placeholder="Год"
+        />
+
+        <input
+          type="text"
+          id="helper-rugost-page-s2"
+          class="helper-rugost-page form-control"
+          style="margin: 7px"
+          placeholder="Страницы: 191-207"
+        />
+
+        <textarea
+          class="form-control helper-rugost"
+          placeholder="Результат появится здесь..."
+          id="helper-rugost-result-s2"
+          style="margin: 7px"
+          onclick="this.select(); navigator.clipboard.writeText(this.value);"
+        ></textarea>
+      </div>
+
+      <div id="helper-rugost_s3" class="helper-rugost_raw" hidden>
+        <h6>Диссертация или автореферат</h6>
+      </div>
+
+      <div id="helper-rugost_s4" class="helper-rugost_raw" hidden>
+        <!-- <h6>Интернет-ресурс</h6> -->
+
+        <input
+          type="text"
+          id="helper-rugost-author-s4"
+          class="helper-rugost-author form-control"
+          style="margin: 7px"
+          placeholder="(необязательно) Фамилии и инициалы автора (авторов, через запятую)"
+        />
+
+        <input
+          type="text"
+          id="helper-rugost-title-s4"
+          class="helper-rugost-title form-control"
+          style="margin: 7px"
+          placeholder="Заголовок статьи (веб-страницы)"
+        />
+
+        <input
+          type="text"
+          id="helper-rugost-web_title-s4"
+          class="helper-rugost-web_title form-control"
+          style="margin: 7px"
+          placeholder="Название сайта"
+        />
+
+        <input
+          type="url"
+          id="helper-rugost-web_url-s4"
+          class="helper-rugost-web_url form-control"
+          style="margin: 7px"
+          placeholder="Ссылка на страницу"
+        />
+
+        <textarea
+          class="form-control helper-rugost"
+          placeholder="Результат появится здесь..."
+          id="helper-rugost-result-s4"
+          style="margin: 7px"
+          onclick="this.select(); navigator.clipboard.writeText(this.value);"
+        ></textarea>
+      </div>
+    </div>
+
     <div id="d2" class="block">
-      <p>Автор: <a href="https://tankalxat34.t.me" target="_blank">tankalxat34</a></p>
+      <p>
+        Автор:
+        <a href="https://tankalxat34.t.me" target="_blank">tankalxat34</a>
+      </p>
     </div>
   </body>
 

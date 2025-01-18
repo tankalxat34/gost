@@ -12,7 +12,7 @@ h4 {
 }
 
 /* Основные стили для input */
-input[type="text"] {
+input, select {
   max-width: 90%;
   padding: 10px 15px;
   margin: 10px 0;
